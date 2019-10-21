@@ -18,7 +18,7 @@ V práci bola riešená klasifikácia sentimentu v twitter správach s využití
 ## Dataset
 http://help.sentiment140.com/for-students/ 
 
-Tento dataset vo formáte CSV obsahuje 160000 záznamov twitter správ s odstránenými emotikonmi. 
+Tento dataset vo formáte CSV obsahuje 1600000 záznamov twitter správ s odstránenými emotikonmi. 
 Každý záznam obsahuje 6 polí:
     
     1. Sentiment správy (0 - negatívny, 2 - neutrálny, 4 - pozitívny)
