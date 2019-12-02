@@ -5,10 +5,11 @@ import tensorflow.keras as keras
 def load_data(filename):
     names = ['sent', 'tweet']
     data = pd.read_csv(filename, encoding="ISO-8859-1", names=names, delimiter=',')
+
     data = data.iloc[np.random.permutation(len(data))]
     data = data.reset_index(drop=True)
-    print(data.head())
-    data['words'] = data['tweet'].str.split()
+
+    data['words'] = data['tweet'].str.lower().str.split()
     y = data['sent'].tolist()
     x = data['words'].tolist()
 
@@ -16,11 +17,14 @@ def load_data(filename):
 
 def load_vocabulary(x, z):
     words = set()
+
     for sample in x:
-        words = words.union(sample)
+        for word in sample:
+            words.add(word)
 
     for sample in z:
-        words = words.union(sample)
+        for word in sample:
+            words.add(word)
 
     vocabulary = {'<pad>': 0}
     for i, word in enumerate(words):
@@ -30,6 +34,7 @@ def load_vocabulary(x, z):
 
 def prepare():
     x, train_y = load_data('../data/processed/train.csv')
+
     z, test_y = load_data('../data/processed/test.csv')
     vocab = load_vocabulary(x, z)
 
@@ -45,4 +50,5 @@ def prepare():
 
     test_x = keras.preprocessing.sequence.pad_sequences(test_x, padding='post')
     test_y = np.asarray(test_y, dtype=np.uint8)
+
     return train_x, train_y, test_x, test_y, vocab

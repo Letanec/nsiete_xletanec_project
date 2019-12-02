@@ -15,6 +15,7 @@ Sentiment140, Twitter Sentiment Classification using Distant Supervision: https:
 V práci bola riešená klasifikácia sentimentu v twitter správach s využitím vzdialeného dozoru. Pri trénovaní využívali twitter správy s emotikonmi. Pri riešení využili metódy Naive Bayes, Maximum Entropy a SVM. 
 
 
+
 ## Dataset
 http://help.sentiment140.com/for-students/ 
 
@@ -32,3 +33,4 @@ Každý záznam obsahuje 6 polí:
     http://help.sentiment140.com/for-students/ 
     http://cs230.stanford.edu/projects_winter_2019/reports/15811341.pdf
     https://cs230.stanford.edu/past-projects/
+    https://www.aclweb.org/anthology/W18-6231.pdf

@@ -5,7 +5,7 @@ from src.models import model as m
 
 def train_model(train_x, train_y, test_x, test_y, vocab):
 
-    model = m.SentimentClassifier(len(vocab), 300, 64, 2)
+    model = m.SentimentClassifier(len(vocab), 200, 64, 1)
 
     model.compile(
         optimizer='adam',
@@ -22,7 +22,7 @@ def train_model(train_x, train_y, test_x, test_y, vocab):
     model.fit(
         x=train_x,
         y=train_y,
-        batch_size=100,
+        batch_size=64,
         epochs=5,
         callbacks=callbacks,
         validation_data=(test_x, test_y))
